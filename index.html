@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./styles.css">
+    <script src="./main.js" defer></script>
+</head>
+<body class="p-3">
+    <h1 class="text-center">Class 4: Javascript Foundations - Part 2</h1>
+    <div class="container-sm">
+        <div class="mt-4 p-5 bg-dark text-black rounded"
+        style="--bs-bg-opacity: .12;">
+            <div class="dropdown">
+                <button class="btn btn-success dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Choose Exercise
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a onclick="exDisplay('exercise1')" class="dropdown-item">Exercise 1</a></li>
+                    <li><a onclick="exDisplay('exercise2')" class="dropdown-item">Exercise 2</a></li>
+                    <li><a onclick="exDisplay('exercise3')" class="dropdown-item">Exercise 3</a></li>
+                    <li><a onclick="exDisplay('exercise4')" class="dropdown-item">Exercise 4</a></li>
+                    <li><a onclick="exDisplay('exercise5')" class="dropdown-item">Exercise 5</a></li>
+                    <li><a onclick="exDisplay('exercise6')" class="dropdown-item">Exercise 6</a></li>
+                    <li><a onclick="exDisplay('exercise7')" class="dropdown-item">Exercise 7</a></li>
+                    <li><a onclick="exDisplay('exercise8')" class="dropdown-item">Exercise 8</a></li>
+                    <li><a onclick="exDisplay('exercise9')" class="dropdown-item">Exercise 9</a></li>
+                    <li><a onclick="exDisplay('exercise10')" class="dropdown-item">Exercise 10</a></li>
+                    <li><a onclick="exDisplay('exercise11')" class="dropdown-item">Exercise 11</a></li>
+                    <li><a onclick="exDisplay('exercise12')" class="dropdown-item">Exercise 12</a></li>
+                    <li><a onclick="exDisplay('exercise13')" class="dropdown-item">Exercise 13</a></li>
+                    <li><a onclick="exDisplay('exercise14')" class="dropdown-item">Exercise 14</a></li>
+                    <li><a onclick="exDisplay('exercise15')" class="dropdown-item">Exercise 15</a></li>
+                    <li><a onclick="exDisplay('exercise16')" class="dropdown-item">Exercise 16</a></li>
+                    <li><a onclick="exDisplay('exercise17')" class="dropdown-item">Exercise 17</a></li>
+                    <li><a onclick="exDisplay('exercise18')" class="dropdown-item">Exercise 18</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container exercise-div" style="display: none">
+        <div class="mt-4 p-5 bg-dark text-black rounded" style="--bs-bg-opacity: .12;">
+            <div class="container exercises">
+                <div class="exercise1" style="display: none">
+                    <h4 class="text-center">Exercise 1</h4>
+                    <h5>Task: Take a name as an argument and display a greeting message.</h5>
+                    <form class="mt-4">
+                        <div class="mb-3">
+                            <label class="form-label">Please enter your name: </label>
+                            <input class="form-control" id="exercise1Name">
+                        </div>
+                        <button type="button" class="btn btn-primary"
+                        onclick="ex1Button()">Submit</button>
+                    </form>
+                    <div class="modal fade" id="exercise1Modal" tabindex="-1" aria-labelledby="exercise1Modal" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <br>
+                                <div class="modal-body text-center ex1-modal-body"></div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="exercise2" style="display: none;">
+                    <h4 class="text-center">Exercise 2</h4>
+                    <h5>Task: Take 2 numbers as arguments and display the product of their multiplication.</h5>
+                    <form class="mt-4">
+                        <div class="row">
+                            <div class="col">
+                                <label class="form-label">First number:</label>
+                                <input min="1" type="number" aria-label="First number" class="form-control" id="exercise2Num1">
+                            </div>
+                            <div class="col">
+                                <label class="form-label">Second number:</label>
+                                <input min="1" type="number" aria-label="Second number" class="form-control" id="exercise2Num2">
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col">
+                                <button type="button" class="btn btn-primary"
+                                onclick="ex2Button()">Calculate</button>
+                            </div>
+                            <div class="col">
+                                <label class="form-label mt-1">
+                                    <h4 id="exercise2Result"></h4>
+                                </label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="exercise3" style="display: none;">
+                    <h4 class="text-center">Exercise 3</h4>
+                    <h5>Task: Create a person object with properties for name, age and gender. Assign the values and display the object.</h5>
+                    <form class="mt-4">
+                        <div class="row">
+                            <div class="col">
+                                <label class="form-label">Name:</label>
+                                <input type="text" aria-label="Name" class="form-control" id="exercise3Name">
+                            </div>
+                            <div class="col">
+                                <label class="form-label">Age:</label>
+                                <input min="1" type="number" aria-label="Age" class="form-control" id="exercise3Age">
+                            </div>
+                            <div class="col">
+                                <label class="form-label">Gender:</label>
+                                <input type="text" aria-label="Gender" class="form-control" id="exercise3Gender">
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <button type="button" class="btn btn-primary"
+                            onclick="ex3Button()">Objectify a Person</button>
+                            <label class="form-label mt-4 text-center">
+                                <h4 id="exercise3Result"></h4>
+                            </label>
+                        </div>
+                    </form>
+                </div>
+                <div class="exercise4" style="display: none;">
+                    <h4 class="text-center">Exercise 4</h4>
+                    <h5>Task: Create a car object with properties for make, model and year. Assign the values and display the object.</h5>
+                    <form class="mt-4">
+                        <div class="row">
+                            <div class="col">
+                                <label class="form-label">Make:</label>
+                                <input type="text" aria-label="Make" class="form-control" id="exercise4Make">
+                            </div>
+                            <div class="col">
+                                <label class="form-label">Model:</label>
+                                <input type="text" aria-label="Model" class="form-control" id="exercise4Model">
+                            </div>
+                            <div class="col">
+                                <label class="form-label">Year:</label>
+                                <input min="1" type="number" aria-label="Year" class="form-control" id="exercise4Year">
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <button type="button" class="btn btn-primary"
+                            onclick="ex4Button()">Download a Car</button>
+                            <label class="form-label mt-4 text-center">
+                                <h4 id="exercise4Result"></h4>
+                            </label>
+                        </div>
+                    </form>
+                </div>
+                <div class="exercise5" style="display: none;">
+                    <h4 class="text-center">Exercise 5</h4>
+                    <h5>Task: Write a function called reverseString that takes a word and returns it reversed.</h5>
+                    <form class="mt-4">
+                        <div class="row">
+                            <label class="form-label">Please enter a word:</label>
+                            <input type="text" aria-label="String" class="form-control" id="exercise5String">
+                        </div>
+                        <div class="row mt-4">
+                            <button type="button" class="btn btn-primary"
+                            onclick="ex5Button()">!tI esreveR</button>
+                            <label class="form-label mt-4 text-center">
+                                <h4 id="exercise5Result"></h4>
+                            </label>
+                        </div>
+                    </form>
+                </div>
+                <div class="exercise6" style="display: none;">
+                    <h4 class="text-center">Exercise 6</h4>
+                    <h5>Task: Write a function called calculateArea that takes the radius of a circle and calculates and displays the area of said circle.</h5>
+                    <form class="mt-4">
+                        <div class="row">
+                            <label class="form-label">Radius of the circle:</label>
+                            <input min="1" type="number" aria-label="Radius" class="form-control" id="exercise6Radius">
+                        </div>
+                        <div class="row mt-4">
+                            <button type="button" class="btn btn-primary"
+                            onclick="ex6Button()">Calculate</button>
+                            <label class="form-label mt-4 text-center">
+                                <h4 id="exercise6Result"></h4>
+                            </label>
+                        </div>
+                    </form>
+                </div>
+                <div class="exercise7" style="display: none;">
+                    <h4 class="text-center">Exercise 7</h4>
+                    <h5>Task: Use the Date object to display the current date and time.</h5>
+                    <form class="mt-4">
+                        <div class="row mt-4">
+                            <button type="button" class="btn btn-primary"
+                            onclick="ex7Button()">Get Current Date and Time</button>
+                            <label class="form-label mt-4 text-center">
+                                <h4 id="exercise7Result"></h4>
+                            </label>
+                        </div>
+                    </form>
+                </div>
+                <div class="exercise8" style="display: none;">
+                    <h4 class="text-center">Exercise 8</h4>
+                    <h5>Task: Use the Math object to generate a random number between 1 and 10.</h5>
+                    <form class="mt-4">
+                        <div class="row mt-4">
+                            <button type="button" class="btn btn-primary"
+                            onclick="ex8Button()">Roll a D10</button>
+                            <label class="form-label mt-4 text-center">
+                                <h4 id="exercise8Result"></h4>
+                            </label>
+                        </div>
+                    </form>
+                </div>
+                <div class="exercise9" style="display: none;">
+                    <h4 class="text-center">Exercise 9</h4>
+                    <h5>There is currently no exercise 9.</h5>
+                </div>
+                <div class="exercise10" style="display: none;">
+                    <h4 class="text-center">Exercise 10</h4>
+                    <h5>Task: Create a function that uses string interpolation to display it in another text string.</h5>
+                    <form class="mt-4">
+                        <div class="row">
+                            <label class="form-label">Please enter some text:</label>
+                            <input type="text" aria-label="String" class="form-control" id="exercise10String">
+                        </div>
+                        <div class="row mt-4">
+                            <button type="button" class="btn btn-primary"
+                            onclick="ex10Button()">String Me Up</button>
+                            <label class="form-label mt-4 text-center">
+                                <h4 id="exercise10Result"></h4>
+                            </label>
+                        </div>
+                    </form>
+                </div>
+                <div class="exercise11" style="display: none;">
+                    <h4 class="text-center">Exercise 11</h4>
+                    <h5>Task: Create an app that, on button click, runs a function to print a user's name, age and occupation.</h5>
+                    <form class="mt-4">
+                        <div class="row">
+                            <div class="col">
+                                <label class="form-label">Name:</label>
+                                <input type="text" aria-label="Name" class="form-control" id="exercise11Name">
+                            </div>
+                            <div class="col">
+                                <label class="form-label">Age:</label>
+                                <input min="1" type="number" aria-label="Age" class="form-control" id="exercise11Age">
+                            </div>
+                            <div class="col">
+                                <label class="form-label">Occupation:</label>
+                                <input type="text" aria-label="Occupation" class="form-control" id="exercise11Occupation">
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <button type="button" class="btn btn-primary"
+                            onclick="ex11Button()">Objectify a Person</button>
+                            <label class="form-label mt-4 text-center">
+                                <h4 id="exercise11Result"></h4>
+                            </label>
+                        </div>
+                    </form>
+                </div>
+                <div class="exercise12" style="display: none;">
+                    <h4 class="text-center">Exercise 12</h4>
+                    <h5>Task: Create a function that takes an object and returns the keys and values as separate arrays. Return each sorted alphabetically and the corresponding values in the same order.</h5>
+                    <form class="mt-4">
+                        <div class="row">
+                            <div class="input-group">
+                                <span class="input-group-text" style="width: 180px;">First key and value</span>
+                                <input type="text" aria-label="Key 1" class="form-control" id="exercise12Key1">
+                                <input type="text" aria-label="Value 1" class="form-control" id="exercise12Value1">
+                            </div>
+                            <div class="input-group mt-1">
+                                <span class="input-group-text" style="width: 180px;">Second key and value</span>
+                                <input type="text" aria-label="Key 2" class="form-control" id="exercise12Key2">
+                                <input type="text" aria-label="Value 2" class="form-control" id="exercise12Value2">
+                            </div><div class="input-group mt-1">
+                                <span class="input-group-text" style="width: 180px;">Third key and value</span>
+                                <input type="text" aria-label="Key 3" class="form-control" id="exercise12Key3">
+                                <input type="text" aria-label="Value 3" class="form-control" id="exercise12Value3">
+                            </div><div class="input-group mt-1">
+                                <span class="input-group-text" style="width: 180px;">Fourth key and value</span>
+                                <input type="text" aria-label="Key 4" class="form-control" id="exercise12Key4">
+                                <input type="text" aria-label="Value 4" class="form-control" id="exercise12Value4">
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <button type="button" class="btn btn-primary"
+                            onclick="ex12Button()">Sort It!</button>
+                            <label class="form-label mt-4">
+                                <div class="row text-center">
+                                    <div class="col">
+                                        <h4 id="exercise12Key1Sorted"></h4>
+                                        <h4 id="exercise12Key2Sorted"></h4>
+                                        <h4 id="exercise12Key3Sorted"></h4>
+                                        <h4 id="exercise12Key4Sorted"></h4>
+                                    </div>
+                                    <div class="col">
+                                        <h4 id="exercise12Value1Sorted"></h4>
+                                        <h4 id="exercise12Value2Sorted"></h4>
+                                        <h4 id="exercise12Value3Sorted"></h4>
+                                        <h4 id="exercise12Value4Sorted"></h4>
+                                    </div>
+                                </div>
+                            </label>
+                        </div>
+                    </form>
+                </div>
+                <div class="exercise13" style="display: none;">
+                    <h4 class="text-center">Exercise 13</h4>
+                    <h5>Task: Given a sentence, reverse the string word by word.</h5>
+                    <form class="mt-4">
+                        <div class="row">
+                            <label class="form-label">Please enter a sentence:</label>
+                            <input type="text" aria-label="Sentence" class="form-control" id="exercise13Sentence">
+                        </div>
+                        <div class="row mt-4">
+                            <button type="button" class="btn btn-primary"
+                            onclick="ex13Button()">!tI esreveR</button>
+                            <label class="form-label mt-4 text-center">
+                                <h4 id="exercise13Result"></h4>
+                            </label>
+                        </div>
+                    </form>
+                </div>
+                <div class="exercise14" style="display: none;">
+                    <h4 class="text-center">Exercise 14</h4>
+                    <h5>Task: Given a string containing only the characters (,),{,},[ and ] determine if the input string has balanced parentheses.</h5>
+                    <form class="mt-4">
+                        <div class="row">
+                            <label class="form-label">Please enter some parentheses:</label>
+                            <input type="text" aria-label="Parentheses" class="form-control" id="exercise14Parens">
+                        </div>
+                        <div class="row mt-4">
+                            <button type="button" class="btn btn-primary"
+                            onclick="ex14Button()">Check Your Balance</button>
+                            <label class="form-label mt-4 text-center">
+                                <h4 id="exercise14Result"></h4>
+                            </label>
+                        </div>
+                    </form>
+                </div>
+                <div class="exercise15" style="display: none;">
+                    <h4 class="text-center">Exercise 15</h4>
+                    <h5>Task: Write a function to check whether two given words are anagrams of each other.</h5>
+                    <form class="mt-4">
+                        <div class="row">
+                            <div class="col">
+                                <label class="form-label">First word:</label>
+                                <input type="text" aria-label="First word" class="form-control" id="exercise15Word1">
+                            </div>
+                            <div class="col">
+                                <label class="form-label">Second word:</label>
+                                <input type="text" aria-label="Second word" class="form-control" id="exercise15Word2">
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <button type="button" class="btn btn-primary"
+                            onclick="ex15Button()">Check</button>
+                            <label class="form-label mt-1">
+                                <h4 id="exercise15Result"></h4>
+                            </label>
+                        </div>
+                    </form>
+                </div>
+                <div class="exercise16" style="display: none;">
+                    <h4 class="text-center">Exercise 16</h4>
+                    <h5>Task: Write a function that prints the numbers from 1 to 100. But for multiples of three, instead of the number, print "Fizz"; for the multiples of five, print "Buzz". For numbers which are multiples of both three and five, print "FizzBuzz".</h5>
+                    <form class="mt-4">
+                        <div class="row mt-4">
+                            <button type="button" class="btn btn-primary mt-4"
+                            onclick="ex16Button()">Fizz Buzz!</button>
+                            <label class="form-label mt-1">
+                                <h4 class="mt-4" id="exercise16Result"></h4>
+                            </label>
+                        </div>
+                    </form>
+                </div>
+                <div class="exercise17" style="display: none;">
+                    <h4 class="text-center">Exercise 17</h4>
+                    <h5>Task: Write a function to check if a given word is a palindrome ignoring spaces, punctuation and capitalization.</h5>
+                    <form class="mt-4">
+                        <div class="row">
+                            <label class="form-label">Please enter a word:</label>
+                            <input type="text" aria-label="Word" class="form-control" id="exercise17Word">
+                        </div>
+                        <div class="row mt-4">
+                            <button type="button" class="btn btn-primary"
+                            onclick="ex17Button()">check</button>
+                            <label class="form-label mt-4 text-center">
+                                <h4 class="mt-4" id="exercise17Result"></h4>
+                            </label>
+                        </div>
+                    </form>
+                </div>
+                <div class="exercise18" style="display: none;">
+                    <h4 class="text-center">Exercise 18</h4>
+                    <h5>Task: Use String.prototype.split() and other String methods to reverse the words in a sentence.</h5>
+                    <form class="mt-4">
+                        <div class="row">
+                            <label class="form-label">Please enter a sentence:</label>
+                            <input type="text" aria-label="Sentence" class="form-control" id="exercise18Sentence">
+                        </div>
+                        <div class="row mt-4">
+                            <button type="button" class="btn btn-primary"
+                            onclick="ex18Button()">!tI esreveR</button>
+                            <label class="form-label mt-4 text-center">
+                                <h4 id="exercise18Result"></h4>
+                            </label>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
